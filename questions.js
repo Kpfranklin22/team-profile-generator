@@ -42,5 +42,11 @@ const engineerQuestions = [
     name: "officeNumber",
   },
 ];
+const menuQuestion = {
+  type:"list",
+  message:"What would you like to do next?",
+  name:"menu",
+  choices:["Add Engineer","Add Intern", "Finish building team"]
+}
 
-module.exports = { managerQuestions, engineerQuestions };
+module.exports = { managerQuestions, engineerQuestions, menuQuestion };

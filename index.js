@@ -1,5 +1,10 @@
 const { prompt } = require("inquirer");
-const { managerQuestions, engineerQuestions } = require("./questions");
+const { Employee, Manager } = require("./models");
+const {
+  managerQuestions,
+  engineerQuestions,
+  menuQuestion,
+} = require("./questions");
 const team = [];
 function promptManager() {
   prompt(managerQuestions).then((answers) => {
@@ -11,6 +16,14 @@ function promptManager() {
       answers.officeNumber
     );
     team.push(employee);
+    promptMenu();
+  });
+}
+function promptMenu() {
+  prompt(menuQuestion).then(({ menu }) => {
+    if (menu === "Add Engineer") {
+      promptEngineer();
+    }
   });
 }
 promptManager();
