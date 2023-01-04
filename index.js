@@ -11,7 +11,7 @@ function promptManager() {
     console.log(answers);
     const employee = new Manager(
       answers.name,
-      answers.ID,
+      answers.id,
       answers.email,
       answers.officeNumber
     );
