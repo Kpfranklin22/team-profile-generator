@@ -1,8 +1,9 @@
 const { prompt } = require("inquirer");
-const { Employee, Manager } = require("./models");
+const { Employee, Manager, Engineer, Intern } = require("./models");
 const {
   managerQuestions,
   engineerQuestions,
+  internQuestion,
   menuQuestion,
 } = require("./questions");
 const team = [];
@@ -19,6 +20,8 @@ function promptManager() {
     promptMenu();
   });
 }
+
+// Need to work on if else statements inside promptMenu function
 function promptMenu() {
   prompt(menuQuestion).then(({ menu }) => {
     if (menu === "Add Engineer") {

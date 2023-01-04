@@ -29,7 +29,7 @@ const engineerQuestions = [
   {
     type: "input",
     message: "What is the manager's ID?",
-    name: "ID",
+    name: "id",
   },
   {
     type: "input",
@@ -42,6 +42,13 @@ const engineerQuestions = [
     name: "officeNumber",
   },
 ];
+const internQuestion = [
+  {
+    type:"input",
+    message:"What school did/do you attend?",
+    name:"School"
+  }
+]
 const menuQuestion = {
   type:"list",
   message:"What would you like to do next?",
@@ -49,4 +56,4 @@ const menuQuestion = {
   choices:["Add Engineer","Add Intern", "Finish building team"]
 }
 
-module.exports = { managerQuestions, engineerQuestions, menuQuestion };
+module.exports = { managerQuestions, engineerQuestions, internQuestion, menuQuestion };
