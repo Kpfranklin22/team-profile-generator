@@ -6,10 +6,16 @@ const {
   internQuestions,
   menuQuestion,
 } = require("./questions");
+const generateSite = require("./src/generate-site");
+const fs = require("fs");
+const path = require("path");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 const team = [];
+
+// functions
 function promptManager() {
   prompt(managerQuestions).then((answers) => {
-    console.log(answers);
     const employee = new Manager(
       answers.name,
       answers.id,
@@ -21,8 +27,7 @@ function promptManager() {
   });
 }
 function promptEngineer() {
-  prompt(engineerQuestions).then((answers)=>{
-    console.log(answers);
+  prompt(engineerQuestions).then((answers) => {
     const employee = new Engineer(
       answers.name,
       answers.id,
@@ -33,9 +38,8 @@ function promptEngineer() {
     promptMenu();
   });
 }
-function promptIntern(){
-  prompt(internQuestions).then((answers)=>{
-    console.log(answers);
+function promptIntern() {
+  prompt(internQuestions).then((answers) => {
     const employee = new Intern(
       answers.name,
       answers.id,
@@ -44,8 +48,9 @@ function promptIntern(){
     );
     team.push(employee);
     promptMenu();
-  })
+  });
 }
+
 // Need to work on if else statements inside promptMenu function
 function promptMenu() {
   prompt(menuQuestion).then(({ menu }) => {
@@ -55,11 +60,17 @@ function promptMenu() {
     if (menu === "Add Intern") {
       promptIntern();
     }
-    if (menu === "Finish building team"){
-     
-      console.log(team)
-      
+    if (menu === "Finish building team") {
+      buildTeam();
     }
   });
 }
+
+const buildTeam = () => {
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+  fs.writeFileSync(outputPath, generateSite(team), "utf-8");
+};
+
 promptManager();
