@@ -20,6 +20,8 @@
 ## Usage
 The user must invoke the application from the command-line by running: node index.js. The user would enter responses to all of the prompts in the application. Upon choosing to finish, a HTML file will be generated.
 
+Here is a video demonstrating an example: https://drive.google.com/file/d/1MhDgp8fBeCa11c6HKRPkej9te0jl5ZNx/view
+
 ## Contributions
 Contributors: N/A
 
