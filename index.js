@@ -15,7 +15,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const team = [];
 
-// prompt functions for question data
+// prompt functions for question data and creates new profiles
 function promptManager() {
   prompt(managerQuestions).then((answers) => {
     const employee = new Manager(
