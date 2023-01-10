@@ -1,4 +1,4 @@
-// variables and packages
+// variables, packages, imported modules
 
 const { prompt } = require("inquirer");
 const { Employee, Manager, Engineer, Intern } = require("./models");
@@ -15,7 +15,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const team = [];
 
-// functions for questions data
+// prompt functions for question data
 function promptManager() {
   prompt(managerQuestions).then((answers) => {
     const employee = new Manager(
@@ -53,7 +53,7 @@ function promptIntern() {
   });
 }
 
-// loops the options during the prompt process to be able to add as many or few team members, and/or then to exit app
+// prompt function for menu loop and application exit
 function promptMenu() {
   prompt(menuQuestion).then(({ menu }) => {
     if (menu === "Add Engineer") {
