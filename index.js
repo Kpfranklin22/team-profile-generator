@@ -1,3 +1,5 @@
+// variables and packages
+
 const { prompt } = require("inquirer");
 const { Employee, Manager, Engineer, Intern } = require("./models");
 const {
@@ -13,7 +15,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const team = [];
 
-// functions
+// functions for questions data
 function promptManager() {
   prompt(managerQuestions).then((answers) => {
     const employee = new Manager(
@@ -51,7 +53,7 @@ function promptIntern() {
   });
 }
 
-// Need to work on if else statements inside promptMenu function
+// loops the options during the prompt process to be able to add as many or few team members, and/or then to exit app
 function promptMenu() {
   prompt(menuQuestion).then(({ menu }) => {
     if (menu === "Add Engineer") {
@@ -66,6 +68,7 @@ function promptMenu() {
   });
 }
 
+// path routing and write to file function
 const buildTeam = () => {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR);

@@ -1,3 +1,5 @@
+//question and data compostion for menu input
+
 const managerQuestions = [
   {
     type: "input",

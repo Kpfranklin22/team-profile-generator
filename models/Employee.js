@@ -1,3 +1,4 @@
+// starter class and constructor function that profiles are built off of
 class Employee {
   constructor(name, id, email) {
     this.name = name;
