@@ -40,7 +40,7 @@ const engineerQuestions = [
   },
   {
     type: "input",
-    message: "What is the engineer's github username?",
+    message: "What is the engineer's github username? Must be case sensitive.",
     name: "github",
   },
 ];
